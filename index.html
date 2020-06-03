@@ -3,18 +3,38 @@
     <h1>Enter the details</h1>
     <form name="frm1">
         Enter your nationality:
-        <input type="Text" name="txtNat" size="20">
-        <BR /><BR />
+        <input type="text" name="txtNat" size="20">
+        <br /><br />
         Enter your age:
-        <input type="Text" name="txtAge" size="2">
-        <BR /><BR />
-        <input type ="Button" name="BSubmit" value="Send details">
+        <input type="text" name="txtAge" size="2">
+        <br /><br />
+        <div id="display" style="background-color: green;"></div>
+        <input type ="button" name="BSubmit" value="Send details" onsubmit="vote ()">
         </form>
+        <script>
+            function vote() {
+                
+                //getting user based input
+                var nationality = document.getElementByName('txtNat').value;
+                var age = document.getElementByName('txtAge').value;
+
+                //checking for conditions now
+                if (age<18) {
+                    alert("Not eligible to vote!");
+                    
+                }
+                else if (nationality != 'Zimbabwean') {
+                    alert("Not eligible to vote!");
+                    
+                } else {
+                    document.getElementById('display').innerHTML = "Congratulations! You are eligible to vote";
+                }
+            }
+            document.getElementsByName('BSubmit').addEventListener('click',vote);
+
+        </script>
+
 </body>
 </html>
 
-Write the JavaScript code to be embedded in the above HTML code for the click event of the button which will display the alert message “Eligible for Voting” if the following validations are true:
-i.	The age should be numeric and should be  more than 18 			[5]
-ii.	The nationality should be “Zimbabwean”					[5]
-iii.	The alert message “Not eligible to vote” should be displayed if any of the above mentioned validations are false. 						[5]
 

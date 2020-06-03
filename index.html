@@ -1,7 +1,7 @@
 ﻿<html>
 <body>
     <h1>Enter the details</h1>
-    <form name="frm1">
+    
         Enter your nationality:
         <input type="text" name="txtNat" size="20">
         <br /><br />
@@ -9,28 +9,29 @@
         <input type="text" name="txtAge" size="2">
         <br /><br />
         <div id="display" style="background-color: green;"></div>
-        <input type ="button" name="BSubmit" value="Send details" onsubmit="vote ()">
-        </form>
+        <input type ="submit" name="BSubmit" value="Send details" onclick="vote ()">
+       
         <script>
             function vote() {
                 
                 //getting user based input
-                var nationality = document.getElementByName('txtNat').value;
-                var age = document.getElementByName('txtAge').value;
+                var nationality = document.getElementsByName('txtNat');
+                var age = document.getElementsByName('txtAge');
+                //var n = Zimbabwean;
 
                 //checking for conditions now
                 if (age<18) {
                     alert("Not eligible to vote!");
                     
                 }
-                else if (nationality != 'Zimbabwean') {
+                else if ( nationality != 'Zimbabwean') {
                     alert("Not eligible to vote!");
                     
                 } else {
-                    document.getElementById('display').innerHTML = "Congratulations! You are eligible to vote";
+                    alert("Congratulations! You are eligible to vote");
                 }
             }
-            document.getElementsByName('BSubmit').addEventListener('click',vote);
+           // document.getElementsByName('BSubmit').addEventListener('click',vote);
 
         </script>
 

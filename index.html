@@ -1,20 +1,41 @@
-﻿<HTML>
-<BODY>
-    <H1>Enter the details</H1>
-    <FORM NAME="frm1">
+﻿<html>
+<body>
+    <h1>Enter the details</h1>
+    
         Enter your nationality:
-        <INPUT TYPE="Text" NAME="txtNat" SIZE="20">
-        <BR /><BR />
+        <input type="text" name="txtNat" size="20">
+        <br /><br />
         Enter your age:
-        <INPUT TYPE="Text" NAME="txtAge" SIZE="2">
-        <BR /><BR />
-        <INPUT TYPE="Button" NAME="BSubmit" VALUE="Send details">
-    </FORM>
-</BODY>
-</HTML>
+        <input type="text" name="txtAge" size="2">
+        <br /><br />
+        <div id="display" style="background-color: green;"></div>
+        <input type ="submit" name="BSubmit" value="Send details" onclick="vote ()">
+       
+        <script>
+            function vote() {
+                
+                //getting user based input
+                var nationality = document.getElementsByName('txtNat');
+                var age = document.getElementsByName('txtAge');
+                //var n = Zimbabwean;
 
-Write the JavaScript code to be embedded in the above HTML code for the click event of the button which will display the alert message “Eligible for Voting” if the following validations are true:
-i.	The age should be numeric and should be  more than 18 			[5]
-ii.	The nationality should be “Zimbabwean”					[5]
-iii.	The alert message “Not eligible to vote” should be displayed if any of the above mentioned validations are false. 						[5]
+                //checking for conditions now
+                if (age<18) {
+                    alert("Not eligible to vote!");
+                    
+                }
+                else if ( nationality != 'Zimbabwean') {
+                    alert("Not eligible to vote!");
+                    
+                } else {
+                    alert("Congratulations! You are eligible to vote");
+                }
+            }
+           // document.getElementsByName('BSubmit').addEventListener('click',vote);
+
+        </script>
+
+</body>
+</html>
+
 

@@ -2,37 +2,43 @@
 <body>
     <h1>Enter the details</h1>
     
+        <form name="frm1" action="index.html">
         Enter your nationality:
-        <input type="text" name="txtNat" size="20">
+        <input type="text" name="txtNat" id="nationality" size="20">
         <br /><br />
         Enter your age:
-        <input type="text" name="txtAge" size="2">
+        <input type="number" name="txtAge" id="age" size="2">
         <br /><br />
         <div id="display" style="background-color: green;"></div>
         <input type ="submit" name="BSubmit" value="Send details" onclick="vote ()">
+        </form>
        
         <script>
             function vote() {
                 
                 //getting user based input
-                var nationality = document.getElementsByName('txtNat');
-                var age = document.getElementsByName('txtAge');
-                //var n = Zimbabwean;
+                let Nationality = document.getElementById("nationality").value;
+                let age = Number(document.getElementById("age").value);
+                
 
-                //checking for conditions now
-                if (age<18) {
+                //checking for conditions based on age and if it is a number
+                if (isNaN(age) || age < 18) {
                     alert("Not eligible to vote!");
-                    
+                    return false;
                 }
-                else if ( nationality != 'Zimbabwean') {
-                    alert("Not eligible to vote!");
+                //checking for nationality not
+                else if (Nationality != 'Zimbabwean'){
+                    alert("Not eligible to vote");
+                    return false;
+                }
                     
-                } else {
+                else {
+                    //when the user is Zimbabwean and is above the age of 18
                     alert("Congratulations! You are eligible to vote");
                 }
             }
-           // document.getElementsByName('BSubmit').addEventListener('click',vote);
-
+//You owe me 
+//#Surveyor Jr
         </script>
 
 </body>
